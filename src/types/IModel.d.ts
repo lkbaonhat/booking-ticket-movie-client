@@ -12,4 +12,8 @@ declare namespace MODEL {
     totalCount: number;
     items: P[];
   }
+
+  export interface ITemplates {
+    Component: React.ComponentType;
+  }
 }
