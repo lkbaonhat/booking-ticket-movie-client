@@ -1,10 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "./state";
 
 const editorSlice = createSlice({
   name: "global",
   initialState,
-  reducers: {},
+  reducers: {
+    setListBanner(state, action: PayloadAction<any>) {
+      state.arrImg = action.payload;
+    },
+  },
 });
 
 export const {} = editorSlice.actions;

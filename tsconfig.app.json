@@ -23,6 +23,9 @@
       "@redux/*": [
         "src/redux/*"
       ],
+      "@services/*": [
+        "src/services/*"
+      ],
       "@utils/*": [
         "src/utils/*"
       ],
