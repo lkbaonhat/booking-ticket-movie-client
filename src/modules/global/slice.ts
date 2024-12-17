@@ -11,6 +11,6 @@ const editorSlice = createSlice({
   },
 });
 
-export const {} = editorSlice.actions;
+export const { setListBanner } = editorSlice.actions;
 
 export default editorSlice.reducer;

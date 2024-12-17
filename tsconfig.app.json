@@ -17,6 +17,9 @@
       "@containers/*": [
         "src/containers/*"
       ],
+      "@modules/*": [
+        "src/modules/*"
+      ],
       "@pages/*": [
         "src/pages/*"
       ],
@@ -25,6 +28,9 @@
       ],
       "@services/*": [
         "src/services/*"
+      ],
+      "@templates/*": [
+        "src/templates/*"
       ],
       "@utils/*": [
         "src/utils/*"
