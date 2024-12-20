@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Fragment, memo } from "react";
 //Library
 import { Tabs } from "antd";
+import { NavLink } from "react-router-dom";
+import moment from "moment";
 
-const { TabPane } = Tabs;
+const { TabPane } = Tabs; 
 
 export default function HomeMenu(props) {
   const { cinemaSystem } = props;
@@ -37,7 +39,51 @@ export default function HomeMenu(props) {
                     </div>
                   }
                   key={index}
-                ></TabPane>
+                >
+                  {cumRap.danhSachPhim
+                    .slice(0, 4)
+                    .map((film: any, index: number) => {
+                      return (
+                        <Fragment key={index}>
+                          <div className="my-5">
+                            <div style={{ display: "flex" }}>
+                              <img
+                                src={film.hinhAnh}
+                                alt={film.tenPhim}
+                                onError={(e) => {
+                                  e.target.onerror = null;
+                                  e.target.src = "https://picsum.photos/7575";
+                                }}
+                              />
+
+                              <div className="ml-2">
+                                <h1 className="text-2xl text-green-700">
+                                  <p>{cumRap.diaChi}</p>
+                                  <div className="grid grid-cols-6 gap-6">
+                                    {film.lstLichChieuTheoPhim
+                                      ?.slice(0, 12)
+                                      .map((lichChieu: any, index: number) => {
+                                        return (
+                                          <NavLink
+                                            className="text-2xl text-green-400"
+                                            to={`/checkout/${lichChieu.maLichChieu}`}
+                                          >
+                                            {moment(
+                                              lichChieu.ngayChieuGioChieu
+                                            ).format("hh:mm A")}
+                                          </NavLink>
+                                        );
+                                      })}
+                                  </div>
+                                </h1>
+                              </div>
+                            </div>
+                          </div>
+                          <hr />
+                        </Fragment>
+                      );
+                    })}
+                </TabPane>
               );
             })}
           </Tabs>
@@ -46,5 +92,9 @@ export default function HomeMenu(props) {
     });
   };
 
-  return <div>index</div>;
+  return (
+    <>
+      <Tabs tabPosition={tabPosition}>{renderCinemaSystem()}</Tabs>
+    </>
+  );
 }

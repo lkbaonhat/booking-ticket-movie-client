@@ -5,7 +5,9 @@ export default function Home() {
   return (
     <div>
       <HomeCarousel />
-      <section className="text-gray-600 body"></section>
+      <section className="text-gray-600 body">
+        
+      </section>
     </div>
   );
 }
