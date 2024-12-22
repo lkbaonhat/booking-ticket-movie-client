@@ -36,4 +36,7 @@ export const initialState = {
       sapChieu: true,
     },
   ],
+  cinemaSystem: [],
+  dangChieu: true,
+  sapChieu: true,
 };

@@ -4,9 +4,9 @@ import { Tabs } from "antd";
 import { NavLink } from "react-router-dom";
 import moment from "moment";
 
-const { TabPane } = Tabs; 
+const { TabPane } = Tabs;
 
-export default function HomeMenu(props) {
+export default function HomeMenu(props: any) {
   const { cinemaSystem } = props;
   const [tabPosition, setTabPosition] = React.useState("left");
 
