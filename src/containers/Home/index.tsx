@@ -1,13 +1,23 @@
-import React from "react";
+import React, { memo, useEffect } from "react";
 import HomeCarousel from "@templates/HomeTemplate/Layout/HomeCarousel";
 import { selectCinemaSystem, selectListFilm } from "@modules/global/selector";
 import MutipleRowSlick from "@/components/RSlick";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import HomeMenu from "./HomeMenu";
 
+const HomeMenuMemo = memo(function HomeMenuMemo({ cinemaSystem }) {
+  return <HomeMenu cinemaSystem={cinemaSystem} />;
+});
+
 export default function Home() {
+  const dispatch = useDispatch();
   const arrFilm = useSelector(selectListFilm);
   const cinemaSystem = useSelector(selectCinemaSystem);
+
+  useEffect(() => {
+    dispatch({ type: "getListFilm", payload: { filmName: "" } });
+    dispatch({ type: "getListCinemaSystem" });
+  }, []);
 
   return (
     <div>
@@ -18,7 +28,7 @@ export default function Home() {
         </div>
       </section>
       <div className="mx-36">
-        <HomeMenu cinemaSystem={cinemaSystem} />
+        <HomeMenuMemo cinemaSystem={cinemaSystem} />
       </div>
     </div>
   );

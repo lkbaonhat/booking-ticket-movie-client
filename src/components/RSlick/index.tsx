@@ -33,13 +33,10 @@ export default function MutipleRowSlick(props: any) {
   const sapChieu = useSelector(selectSapChieu);
 
   const renderFilms = () => {
-    debugger;
-    return props.arrFilm.slice(0, 12).map((item: any, index: number) => {
-      return (
-        <div className="mt-2" key={index}>
-          <Film_Flip item={item} />
-        </div>
-      );
+    return props.arrFilm.map((item: any, index: number) => {
+      <div className="mt-2" key={index}>
+        <Film_Flip item={item} />
+      </div>;
     });
   };
 

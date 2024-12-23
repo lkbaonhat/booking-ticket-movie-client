@@ -67,6 +67,7 @@ export default function HomeMenu(props: any) {
                                           <NavLink
                                             className="text-2xl text-green-400"
                                             to={`/checkout/${lichChieu.maLichChieu}`}
+                                            key={index}
                                           >
                                             {moment(
                                               lichChieu.ngayChieuGioChieu

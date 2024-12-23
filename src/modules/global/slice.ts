@@ -8,9 +8,16 @@ const editorSlice = createSlice({
     setListBanner(state, action: PayloadAction<any>) {
       state.arrImg = action.payload;
     },
+    setListFilm(state, action: PayloadAction<any>) {
+      state.arrFilm = action.payload;
+    },
+    setListCinemaSystem(state, action: PayloadAction<any>) {
+      state.cinemaSystem = action.payload;
+    },
   },
 });
 
-export const { setListBanner } = editorSlice.actions;
+export const { setListBanner, setListFilm, setListCinemaSystem } =
+  editorSlice.actions;
 
 export default editorSlice.reducer;
