@@ -3,7 +3,7 @@ import styleSlick from "./MultipleRowSlick.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import Film_Flip from "../Film/Film_Flip";
 import { selectDangChieu, selectSapChieu } from "@modules/global/selector";
-import { Slider } from "antd";
+import Slider from "react-slick";
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -33,10 +33,12 @@ export default function MutipleRowSlick(props: any) {
   const sapChieu = useSelector(selectSapChieu);
 
   const renderFilms = () => {
-    return props.arrFilm.map((item: any, index: number) => {
-      <div className="mt-2" key={index}>
-        <Film_Flip item={item} />
-      </div>;
+    return props.arrFilm.slice(0, 12).map((item: any, index: number) => {
+      return (
+        <div className="mt-2" key={index}>
+          <Film_Flip item={item} />
+        </div>
+      );
     });
   };
 
@@ -48,7 +50,7 @@ export default function MutipleRowSlick(props: any) {
     centerMode: true,
     infinite: true,
     centerPadding: "60px",
-    slidesToShow: 2,
+    slidesToShow: 3,
     speed: 500,
     rows: 2,
     slidesPerRow: 2,
