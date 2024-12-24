@@ -50,7 +50,7 @@ export default function MutipleRowSlick(props: any) {
     centerMode: true,
     infinite: true,
     centerPadding: "60px",
-    slidesToShow: 3,
+    slidesToShow: 2,
     speed: 500,
     rows: 2,
     slidesPerRow: 2,

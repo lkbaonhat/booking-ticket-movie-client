@@ -1,8 +1,7 @@
 import React, { Fragment, memo } from "react";
 //Library
 import { Tabs } from "antd";
-import { NavLink } from "react-router-dom";
-import moment from "moment";
+import CardFilmItem from "./CardFilmItem";
 
 const { TabPane } = Tabs;
 
@@ -28,6 +27,7 @@ export default function HomeMenu(props: any) {
                   tab={
                     <div style={{ width: "300px", display: "flex" }}>
                       <img
+                        style={{ width: "60px" }}
                         src="https://s3img.vcdn.vn/123phim/2018/09/ddc-dong-da-15379624326697.jpg"
                         alt=""
                       />
@@ -47,37 +47,12 @@ export default function HomeMenu(props: any) {
                         <Fragment key={index}>
                           <div className="my-5">
                             <div style={{ display: "flex" }}>
-                              <img
-                                src={film.hinhAnh}
-                                alt={film.tenPhim}
-                                onError={(e) => {
-                                  e.target.onerror = null;
-                                  e.target.src = "https://picsum.photos/7575";
-                                }}
+                              <CardFilmItem
+                                hinhAnh={film.hinhAnh}
+                                tenPhim={film.tenPhim}
+                                diaChi={cumRap.diaChi}
+                                lstLichChieuTheoPhim={film.lstLichChieuTheoPhim}
                               />
-
-                              <div className="ml-2">
-                                <h1 className="text-2xl text-green-700">
-                                  <p>{cumRap.diaChi}</p>
-                                  <div className="grid grid-cols-6 gap-6">
-                                    {film.lstLichChieuTheoPhim
-                                      ?.slice(0, 12)
-                                      .map((lichChieu: any, index: number) => {
-                                        return (
-                                          <NavLink
-                                            className="text-2xl text-green-400"
-                                            to={`/checkout/${lichChieu.maLichChieu}`}
-                                            key={index}
-                                          >
-                                            {moment(
-                                              lichChieu.ngayChieuGioChieu
-                                            ).format("hh:mm A")}
-                                          </NavLink>
-                                        );
-                                      })}
-                                  </div>
-                                </h1>
-                              </div>
                             </div>
                           </div>
                           <hr />
