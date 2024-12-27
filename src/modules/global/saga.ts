@@ -1,9 +1,15 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { setListBanner, setListCinemaSystem, setListFilm } from "./slice";
+import {
+  setFilmDetail,
+  setListBanner,
+  setListCinemaSystem,
+  setListFilm,
+} from "./slice";
 //Api services
 import { manageFilmService } from "@services/ManageFilmService";
 import { manageCinemaService } from "@services/ManageCinemaService";
 
+//____Film
 function* getListBanner(): Generator<any, void, any> {
   try {
     const res = yield call(manageFilmService.getListBanner);
@@ -23,6 +29,17 @@ function* getListFilm(action: any): Generator<any, void, any> {
   }
 }
 
+function* getFilmDetail(action: any): Generator<any, void, any> {
+  const { filmCode } = action.payload;
+  try {
+    const res = yield call(manageFilmService.getFilmDetail, filmCode);
+    yield put(setFilmDetail(res.data.content));
+  } catch (error) {
+    console.error("Error", error);
+  }
+}
+
+//____Cinema System
 function* getListCinemaSystem(): Generator<any, void, any> {
   try {
     const res = yield call(manageCinemaService.getListCinemaSystem);
@@ -36,4 +53,5 @@ export function* watchEditorGlobalSaga() {
   yield takeLatest("getBanner", getListBanner);
   yield takeLatest("getListFilm", getListFilm);
   yield takeLatest("getListCinemaSystem", getListCinemaSystem);
+  yield takeLatest("getFilmDetail", getFilmDetail);
 }

@@ -17,7 +17,9 @@ export default function HomeMenu(props: any) {
     return cinemaSystem?.map((cinemaSystem: any, index: number) => {
       return (
         <TabPane
-          tab={<img src={cinemaSystem.logo} className="" width={50} />}
+          tab={
+            <img src={cinemaSystem.logo} className="rounded-full" width={50} />
+          }
           key={index}
         >
           <Tabs tabPosition={tabPosition}>

@@ -18,6 +18,10 @@ export class ManageFilmService extends BaseService {
     }
     return this.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUPID}`);
   };
+
+  getFilmDetail = (filmCode: any) => {
+    return this.get(`/api/QuanLyPhim/LayThongTinPhim?MaPhim=${filmCode}`);
+  };
 }
 
 export const manageFilmService = new ManageFilmService();

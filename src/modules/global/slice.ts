@@ -14,10 +14,17 @@ const editorSlice = createSlice({
     setListCinemaSystem(state, action: PayloadAction<any>) {
       state.cinemaSystem = action.payload;
     },
+    setFilmDetail(state, action: PayloadAction<any>) {
+      state.filmDetail = action.payload;
+    },
   },
 });
 
-export const { setListBanner, setListFilm, setListCinemaSystem } =
-  editorSlice.actions;
+export const {
+  setListBanner,
+  setListFilm,
+  setListCinemaSystem,
+  setFilmDetail,
+} = editorSlice.actions;
 
 export default editorSlice.reducer;

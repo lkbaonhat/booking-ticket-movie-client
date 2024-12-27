@@ -6,3 +6,4 @@ export const selectCinemaSystem = (state: RootState) =>
   state.global.cinemaSystem;
 export const selectDangChieu = (state: RootState) => state.global.dangChieu;
 export const selectSapChieu = (state: RootState) => state.global.sapChieu;
+export const selectFilmDetail = (state: RootState) => state.global.filmDetail;

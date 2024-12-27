@@ -37,6 +37,7 @@ export const initialState = {
     },
   ],
   cinemaSystem: [],
+  filmDetail: Object,
   dangChieu: true,
   sapChieu: true,
 };
