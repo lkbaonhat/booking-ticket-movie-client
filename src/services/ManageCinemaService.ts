@@ -11,6 +11,12 @@ export class ManageCinemaService extends BaseService {
       `/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUPID}`
     );
   };
+
+  getInfoFilmSchedule = (filmCode: any) => {
+    return this.get(
+      `/api/QuanLyRap/LayThongTinLichChieuPhim?maPhim=${filmCode}`
+    );
+  };
 }
 
 export const manageCinemaService = new ManageCinemaService();

@@ -32,7 +32,7 @@ function* getListFilm(action: any): Generator<any, void, any> {
 function* getFilmDetail(action: any): Generator<any, void, any> {
   const { filmCode } = action.payload;
   try {
-    const res = yield call(manageFilmService.getFilmDetail, filmCode);
+    const res = yield call(manageCinemaService.getInfoFilmSchedule, filmCode);
     yield put(setFilmDetail(res.data.content));
   } catch (error) {
     console.error("Error", error);

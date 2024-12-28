@@ -10,6 +10,7 @@ import HomePages from "@pages/HomePages";
 import FilmDetailPages from "@pages/FilmDetailPages";
 //--templates
 import HomeTemplate from "@templates/HomeTemplate";
+import CheckoutPages from "./pages/CheckoutPages";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: ROUTES.DETAIL,
     element: <HomeTemplate Component={FilmDetailPages} />,
+  },
+  {
+    path: ROUTES.CHECKOUT,
+    element: <HomeTemplate Component={CheckoutPages} />,
   },
 ]);
 
